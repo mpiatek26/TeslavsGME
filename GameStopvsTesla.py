@@ -25,7 +25,6 @@ def make_graph(stock_data, revenue_data, stock):
 Tesla = yf.Ticker('TSLA')
 html_data = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0220EN-SkillsNetwork/labs/project/revenue.htm'
 
-
 tesla_data = Tesla.history(period= 'max')
 print(tesla_data.head(5))
 tesla_data.reset_index(inplace=True)
@@ -51,7 +50,6 @@ tesla_revenue.dropna(inplace=True)
 tesla_revenue = tesla_revenue[tesla_revenue['Revenue'] != ""]
 
 print(tesla_revenue.tail(5))
-
 
 ################################################################
 
@@ -81,10 +79,11 @@ gme_revenue["Revenue"] = gme_revenue['Revenue'].str.replace(',|\$', "")
 
 print(gme_revenue.tail(5))
 
-
 ################################################################
-
 
 Tesla_graph = make_graph(tesla_data, tesla_revenue, 'Tesla')
 GME_graph = make_graph(GME_data, gme_revenue, 'GameStop')
+
+
+
 
